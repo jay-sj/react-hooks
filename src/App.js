@@ -1,26 +1,19 @@
+/*
+ * @Description: 
+ * @Autor: 神曲
+ * @Date: 2020-04-22 16:39:38
+ * @LastEditors: 神曲
+ * @LastEditTime: 2020-04-22 17:04:26
+ */
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  render(){
+    return(
+      <switch></switch>
+    )
+  }
 }
 
 export default App;
