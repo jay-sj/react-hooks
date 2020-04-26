@@ -1,32 +1,31 @@
 /*
- * @Description: useContext父子组件传值
+ * @Description: useReducer学习
  * @Autor: 神曲
  * @Date: 2020-04-23 18:57:34
  * @LastEditors: 神曲
- * @LastEditTime: 2020-04-26 13:41:43
+ * @LastEditTime: 2020-04-26 14:04:12
  */
-// createContext创建上下文
-import React, { useState,createContext} from "react";
-import Counter from './child'
-export const CountContext=createContext();
-// 父组件
-function Example() {
-  const [count, setCount] = useState(0); //数组解构
+// useReducer
+import React, { useReducer } from "react";
+function ReducerDemo() {
+  // useReducer一般传2个值，第一个是需要传的，第二个是初始值。
+  // dispatch是要传的值
+  const [count, dispatch] = useReducer((state, action) => {
+    switch (action) {
+      case "add":
+        return state + 1;
+      case "sub":
+        return state - 1;
+      default:
+        return state;
+    }
+  }, 0);
   return (
     <div>
-      <p>父组件：你点击了{count}下</p>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        点击
-      </button>
-      {/* Provider提供器，提供需要传的值 */}
-      <CountContext.Provider value={count}>
-        <Counter/>
-      </CountContext.Provider>
+      <h2>现在的分数是：{count}</h2>
+      <button onClick={() => dispatch('add')}>加</button>
+      <button onClick={() => dispatch("sub")}>减</button>
     </div>
   );
 }
-export default Example;
+export default ReducerDemo;
